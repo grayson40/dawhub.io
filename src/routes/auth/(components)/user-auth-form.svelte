@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Button } from "$lib/components/ui/button";
-	import { Input } from "$lib/components/ui/input";
-	import { Label } from "$lib/components/ui/label";
-	import { cn } from "$lib/utils.js";
+	import { Button } from '$lib/components/ui/button';
+	import { Input } from '$lib/components/ui/input';
+	import { Label } from '$lib/components/ui/label';
+	import { cn } from '$lib/utils.js';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
@@ -17,7 +17,7 @@
 	}
 </script>
 
-<div class={cn("grid gap-6", className)} {...$$restProps}>
+<div class={cn('grid gap-6', className)} {...$$restProps}>
 	<form on:submit|preventDefault={onSubmit}>
 		<div class="grid gap-2">
 			<div class="grid gap-1">
@@ -54,7 +54,7 @@
 		{:else}
 			<Icons.gitHub class="mr-2 h-4 w-4" />
 		{/if} -->
-		{" "}
+		{' '}
 		GitHub
 	</Button>
 </div>

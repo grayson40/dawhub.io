@@ -1,33 +1,33 @@
 <script lang="ts" context="module">
-	import { z } from "zod";
+	import { z } from 'zod';
 
 	export const appearanceFormSchema = z.object({
-		theme: z.enum(["light", "dark"], {
-			required_error: "Please select a theme.",
+		theme: z.enum(['light', 'dark'], {
+			required_error: 'Please select a theme.'
 		}),
-		font: z.enum(["inter", "manrope", "system"], {
-			invalid_type_error: "Select a font",
-			required_error: "Please select a font.",
-		}),
+		font: z.enum(['inter', 'manrope', 'system'], {
+			invalid_type_error: 'Select a font',
+			required_error: 'Please select a font.'
+		})
 	});
 
 	export type AppearanceFormSchema = typeof appearanceFormSchema;
 </script>
 
 <script lang="ts">
-	import ChevronDown from "svelte-radix/ChevronDown.svelte";
-	import { browser } from "$app/environment";
-	import SuperDebug, { type SuperValidated, type Infer, superForm } from "sveltekit-superforms";
-	import * as Form from "$lib/components/ui/form";
-	import * as RadioGroup from "$lib/components/ui/radio-group";
-	import { Label } from "$lib/components/ui/label";
-	import { zodClient } from "sveltekit-superforms/adapters";
-	import { cn } from "$lib/utils.js";
-	import { buttonVariants } from "$lib/components/ui/button";
+	import ChevronDown from 'svelte-radix/ChevronDown.svelte';
+	import { browser } from '$app/environment';
+	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	import * as Form from '$lib/components/ui/form';
+	import * as RadioGroup from '$lib/components/ui/radio-group';
+	import { Label } from '$lib/components/ui/label';
+	import { zodClient } from 'sveltekit-superforms/adapters';
+	import { cn } from '$lib/utils.js';
+	import { buttonVariants } from '$lib/components/ui/button';
 	export let data: SuperValidated<Infer<AppearanceFormSchema>>;
 
 	const form = superForm(data, {
-		validators: zodClient(appearanceFormSchema),
+		validators: zodClient(appearanceFormSchema)
 	});
 
 	const { form: formData, enhance } = form;
@@ -41,8 +41,8 @@
 				<select
 					{...attrs}
 					class={cn(
-						buttonVariants({ variant: "outline" }),
-						"w-[200px] appearance-none font-normal"
+						buttonVariants({ variant: 'outline' }),
+						'w-[200px] appearance-none font-normal'
 					)}
 					bind:value={$formData.font}
 				>
@@ -68,23 +68,17 @@
 			<Form.Control let:attrs>
 				<Label class="[&:has([data-state=checked])>div]:border-primary">
 					<RadioGroup.Item {...attrs} value="light" class="sr-only" />
-					<div
-						class="items-center rounded-md border-2 border-muted p-1 hover:border-accent"
-					>
+					<div class="items-center rounded-md border-2 border-muted p-1 hover:border-accent">
 						<div class="space-y-2 rounded-sm bg-[#ecedef] p-2">
 							<div class="space-y-2 rounded-md bg-white p-2 shadow-sm">
 								<div class="h-2 w-[80px] rounded-lg bg-[#ecedef]" />
 								<div class="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
 							</div>
-							<div
-								class="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm"
-							>
+							<div class="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm">
 								<div class="h-4 w-4 rounded-full bg-[#ecedef]" />
 								<div class="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
 							</div>
-							<div
-								class="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm"
-							>
+							<div class="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm">
 								<div class="h-4 w-4 rounded-full bg-[#ecedef]" />
 								<div class="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
 							</div>
@@ -104,15 +98,11 @@
 								<div class="h-2 w-[80px] rounded-lg bg-slate-400" />
 								<div class="h-2 w-[100px] rounded-lg bg-slate-400" />
 							</div>
-							<div
-								class="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm"
-							>
+							<div class="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm">
 								<div class="h-4 w-4 rounded-full bg-slate-400" />
 								<div class="h-2 w-[100px] rounded-lg bg-slate-400" />
 							</div>
-							<div
-								class="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm"
-							>
+							<div class="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm">
 								<div class="h-4 w-4 rounded-full bg-slate-400" />
 								<div class="h-2 w-[100px] rounded-lg bg-slate-400" />
 							</div>

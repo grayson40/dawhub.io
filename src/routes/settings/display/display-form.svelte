@@ -1,51 +1,51 @@
 <script lang="ts" context="module">
-	import { z } from "zod";
+	import { z } from 'zod';
 	const items = [
 		{
-			id: "recents",
-			label: "Recents",
+			id: 'recents',
+			label: 'Recents'
 		},
 		{
-			id: "home",
-			label: "Home",
+			id: 'home',
+			label: 'Home'
 		},
 		{
-			id: "applications",
-			label: "Applications",
+			id: 'applications',
+			label: 'Applications'
 		},
 		{
-			id: "desktop",
-			label: "Desktop",
+			id: 'desktop',
+			label: 'Desktop'
 		},
 		{
-			id: "downloads",
-			label: "Downloads",
+			id: 'downloads',
+			label: 'Downloads'
 		},
 		{
-			id: "documents",
-			label: "Documents",
-		},
+			id: 'documents',
+			label: 'Documents'
+		}
 	] as const;
 	export const displayFormSchema = z.object({
 		items: z.array(z.string()).refine((value) => value.some((item) => item), {
-			message: "You have to select at least one item.",
-		}),
+			message: 'You have to select at least one item.'
+		})
 	});
 	export type DisplayFormSchema = typeof displayFormSchema;
 </script>
 
 <script lang="ts">
-	import * as Form from "$lib/components/ui/form";
-	import * as Checkbox from "$lib/components/ui/checkbox";
-	import { type SuperValidated, type Infer, superForm } from "sveltekit-superforms";
-	import SuperDebug from "sveltekit-superforms";
-	import { zodClient } from "sveltekit-superforms/adapters";
-	import { browser } from "$app/environment";
+	import * as Form from '$lib/components/ui/form';
+	import * as Checkbox from '$lib/components/ui/checkbox';
+	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	import SuperDebug from 'sveltekit-superforms';
+	import { zodClient } from 'sveltekit-superforms/adapters';
+	import { browser } from '$app/environment';
 
 	export let data: SuperValidated<Infer<DisplayFormSchema>>;
 
 	const form = superForm(data, {
-		validators: zodClient(displayFormSchema),
+		validators: zodClient(displayFormSchema)
 	});
 
 	const { form: formData, enhance } = form;
@@ -55,9 +55,7 @@
 	<Form.Fieldset {form} name="items" class="space-y-0">
 		<div class="mb-4">
 			<Form.Legend class="text-base">Sidebar</Form.Legend>
-			<Form.Description>
-				Select the items you want to display in the sidebar.
-			</Form.Description>
+			<Form.Description>Select the items you want to display in the sidebar.</Form.Description>
 		</div>
 		<div class="space-y-2">
 			{#each items as item}
