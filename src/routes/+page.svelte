@@ -1,24 +1,19 @@
 <script lang="ts">
-	import Nav from "$lib/components/nav.svelte";
-	// import Card from "$lib/components/ui/card/card.svelte";
-	import SideNav from "./(components)/side-nav.svelte";
-
-	// export let data;
+	import Nav from '$lib/components/nav.svelte';
+	import SideNav from './(components)/side-nav.svelte';
+	import ProjectFeed from '$lib/components/project-feed.svelte';
 </script>
 
-<div class="hidden md:flex flex-col">
-	<Nav page="dashboard" />
-	<div class="grid lg:grid-cols-4">
+<div class="min-h-screen bg-background">
+	<div class="fixed left-0 right-0 top-0 z-50 bg-background">
+		<Nav page="dashboard" />
+	</div>
+
+	<div class="fixed bottom-0 left-0 top-16 w-60 border-r bg-background">
 		<SideNav />
-		<div class="space-y-4 mt-5">
-			<!-- {#each data.users as item (item.ID)}
-				<Card class="p-4">
-					<div class="flex justify-between items-center py-2">
-						<h2 class="text-lg font-semibold tracking-tight">{item.Username}</h2>
-						<p class="text-sm text-gray-500">{item.Email}</p>
-					</div>
-				</Card>
-			{/each} -->
-		</div>	
+	</div>
+
+	<div class="pl-60 pt-16">
+		<ProjectFeed />
 	</div>
 </div>
