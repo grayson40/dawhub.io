@@ -1,26 +1,22 @@
 <script lang="ts">
-	import type { PageData } from './$types.js';
-	import ProfileForm from './profile-form.svelte';
-	import { Separator } from '$lib/components/ui/separator';
-	import Nav from '$lib/components/nav.svelte';
-	export let data: PageData;
+  import type { PageData } from './$types.js';
+  import ProjectForm from './project-form.svelte';
+  import { Separator } from '$lib/components/ui/separator';
+  import Nav from '$lib/components/nav.svelte';
+  export let data: PageData;
 </script>
 
 <Nav page="New Project" />
-<div class="flex min-h-screen items-center justify-center space-y-6 p-10 pb-16 md:block">
-	<div class="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-		<div class="flex-1 lg:max-w-2xl">
-			<div class="space-y-6">
-				<div>
-					<h3 class="text-lg font-medium">New Project</h3>
-					<p class="text-sm text-muted-foreground">
-						A repository contains all project files, including the revision history. Already have a
-						project repository elsewhere? <a href="/import">Import a repository.</a>
-					</p>
-				</div>
-				<Separator />
-				<ProfileForm data={data.form} />
-			</div>
-		</div>
-	</div>
+<div class="container max-w-3xl py-10">
+  <div class="space-y-6">
+    <div>
+      <h1 class="text-2xl font-semibold tracking-tight">Create New Project</h1>
+      <p class="text-sm text-muted-foreground">
+        Share your music with the world. Create a new project to upload your tracks,
+        collaborate with others, and get feedback.
+      </p>
+    </div>
+    <Separator />
+    <ProjectForm data={data.form} />
+  </div>
 </div>
