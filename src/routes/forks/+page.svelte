@@ -3,10 +3,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Tabs, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
-	import {
-		Card,
-		CardContent,
-	} from '$lib/components/ui/card';
+	import { Card, CardContent } from '$lib/components/ui/card';
 	import {
 		Search,
 		GitFork,
