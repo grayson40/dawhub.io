@@ -1,15 +1,6 @@
-// type User = {
-//     ID: number;
-// 	Username: string;
-// 	Email: string;
-// };
+import { redirect } from '@sveltejs/kit';
+import type { PageLoad } from './$types';
 
-// export const load = async () => {
-// 	// load
-//     const data = await fetch('http:/localhost:8080/api/v1/users');
-
-//     // parse
-//     const sendData: User[] = await data.json();
-
-// 	return { users: sendData };
-// };
+export const load: PageLoad = () => {
+	throw redirect(307, '/explore');
+};

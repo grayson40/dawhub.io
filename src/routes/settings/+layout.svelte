@@ -4,8 +4,6 @@
 	import SidebarNav from './(components)/sidebar-nav.svelte';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
-	import Home from 'lucide-svelte/icons/home';
-
 	import { toggleMode } from 'mode-watcher';
 
 	const sidebarNavItems = [
@@ -32,7 +30,7 @@
 	];
 </script>
 
-<div class="hidden space-y-6 p-10 pb-16 md:block">
+<div class="space-y-6">
 	<div class="flex items-center justify-between">
 		<div class="space-y-0.5">
 			<h2 class="text-2xl font-bold tracking-tight">Settings</h2>
@@ -48,9 +46,6 @@
 				/>
 				<span class="sr-only">Toggle theme</span>
 			</Button>
-			<a href="/" class="ml-4">
-				<Home />
-			</a>
 		</div>
 	</div>
 	<Separator class="my-6" />

@@ -53,6 +53,9 @@
 		<Music />
 	</a>
 	<div class="ml-4">
-		{page.charAt(0).toUpperCase() + page.slice(1)}
+		{page
+			.split(' ')
+			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+			.join(' ')}
 	</div>
 </Sheet.Root>
